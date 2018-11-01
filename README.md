@@ -9,7 +9,7 @@ The guide is [here](https://arunoda.me/blog/ideal-way-to-creare-a-fastai-node). 
 ## Setup
 
 ```
-export DEVSHELL_PROJECT_ID="chal-220311"
+export DEVSHELL_PROJECT_ID="XXX"
 export VM_NAME="myvm"
 export DISK_NAME="mydisk"
 export ZONE="us-west1-b"
