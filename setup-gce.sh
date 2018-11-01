@@ -19,8 +19,9 @@ export PATH="$HOME/anaconda3/bin:$PATH"
 conda create -y --name pytorch_env python=3.7
 
 source activate pytorch_env
-conda install pytorch torchvision -c pytorch
-conda install ipykernel
+
+conda install -y -c pytorch torchvision pytorch
+conda install -y -c ipykernel
 
 source activate pytorch_env
 python -m ipykernel install --user --name pytorch_env --display-name "pytorch_env"
