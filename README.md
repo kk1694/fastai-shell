@@ -117,3 +117,9 @@ gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
  --machine-type=n1-standard-4 
  --accelerator=type=nvidia-tesla-k80,count=1
 ```
+
+## Delete Node
+
+```
+gcloud compute instances delete $VM_NAME --project=$DEVSHELL_PROJECT_ID --zone=$ZONE
+```
