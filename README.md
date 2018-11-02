@@ -4,7 +4,7 @@ For a long time I was frustrated with google cloud. They are super generous to g
 1. Create a disk that will be accessed by multiple VM's.
 1. Depending on what task you want to do, create a VM. For example, for downloading stuff, a CPU only machine is enough.
 
-The guide is [here](https://arunoda.me/blog/ideal-way-to-creare-a-fastai-node). I'm modifying it somewhat, mainly to work with pytorch version 0.4 (and I'm not including fastai).
+The guide is [here](https://arunoda.me/blog/ideal-way-to-creare-a-fastai-node). I'm modifying it somewhat, mainly to work with pytorch version 0.4 as well (i.e. 2 kernels).
 
 ## Setup
 
