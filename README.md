@@ -84,7 +84,7 @@ gcloud compute instances delete $DISK_NAME --zone=$ZONE --project=$DEVSHELL_PROJ
 
 Based on the workload, you can specify whatever machine makes most sense.
 
-### Cheap CPU-only
+### Cheapest: CPU-only (around $0.01/hour)
 
 ```
 gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
@@ -101,7 +101,7 @@ gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
  
 ```
 
-### Cheapest K80 GPU
+### Cheap: K80 GPU (around $0.2/hour)
 
 ```
 gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
@@ -116,6 +116,23 @@ gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
  --disk=name=$DISK_NAME,device-name=$DISK_NAME,mode=rw,boot=yes \
  --machine-type=n1-standard-4 \
  --accelerator=type=nvidia-tesla-k80,count=1
+```
+
+### P100 (around $0.5/hour)
+
+```
+gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
+ instances create $VM_NAME \
+ --zone=$ZONE \
+ --subnet=mynet \
+ --network-tier=PREMIUM \
+ --no-restart-on-failure \
+ --maintenance-policy=TERMINATE \
+ --preemptible \
+ --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
+ --disk=name=$DISK_NAME,device-name=$DISK_NAME,mode=rw,boot=yes \
+ --machine-type=n1-standard-8 \
+ --accelerator=type=nvidia-tesla-p100,count=1
 ```
 
 ## Delete Node
