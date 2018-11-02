@@ -114,7 +114,7 @@ gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
  --preemptible \
  --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
  --disk=name=$DISK_NAME,device-name=$DISK_NAME,mode=rw,boot=yes \
- --machine-type=n1-standard-4 
+ --machine-type=n1-standard-4 \ 
  --accelerator=type=nvidia-tesla-k80,count=1
 ```
 
