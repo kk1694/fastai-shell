@@ -84,10 +84,12 @@ gcloud compute instances delete $DISK_NAME --zone=$ZONE --project=$DEVSHELL_PROJ
 
 Based on the workload, you can specify whatever machine makes most sense.
 
+Note, make sure that you have the correct project selected.
+
 ### Cheapest: CPU-only (around $0.01/hour)
 
 ```
-gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
+gcloud beta compute  \
  instances create $VM_NAME \
  --zone=$ZONE \
  --subnet=mynet \
@@ -104,7 +106,7 @@ gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
 ### Cheap: K80 GPU (around $0.2/hour)
 
 ```
-gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
+gcloud beta compute \
  instances create $VM_NAME \
  --zone=$ZONE \
  --subnet=mynet \
@@ -121,7 +123,7 @@ gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
 ### P100 (around $0.5/hour)
 
 ```
-gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
+gcloud beta compute \
  instances create $VM_NAME \
  --zone=$ZONE \
  --subnet=mynet \
