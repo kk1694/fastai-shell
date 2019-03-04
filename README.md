@@ -89,6 +89,10 @@ Note, make sure that you have the correct project selected.
 ### Cheapest: CPU-only (around $0.01/hour)
 
 ```
+export VM_NAME="myvm"
+export DISK_NAME="mydisk"
+export ZONE="us-west1-b"
+
 gcloud beta compute  \
  instances create $VM_NAME \
  --zone=$ZONE \
@@ -106,6 +110,10 @@ gcloud beta compute  \
 ### Cheap: K80 GPU (around $0.2/hour)
 
 ```
+export VM_NAME="myvm"
+export DISK_NAME="mydisk"
+export ZONE="us-west1-b"
+
 gcloud beta compute \
  instances create $VM_NAME \
  --zone=$ZONE \
@@ -123,6 +131,10 @@ gcloud beta compute \
 ### P100 (around $0.5/hour)
 
 ```
+export VM_NAME="myvm"
+export DISK_NAME="mydisk"
+export ZONE="us-west1-b"
+
 gcloud beta compute \
  instances create $VM_NAME \
  --zone=$ZONE \
@@ -140,5 +152,5 @@ gcloud beta compute \
 ## Delete Node
 
 ```
-gcloud compute instances delete $VM_NAME --project=$DEVSHELL_PROJECT_ID --zone=$ZONE
+gcloud compute instances delete myvm
 ```
