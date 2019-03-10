@@ -10,22 +10,23 @@ The guide is [here](https://arunoda.me/blog/ideal-way-to-creare-a-fastai-node). 
 
 ```
 export DEVSHELL_PROJECT_ID="XXX"
-export VM_NAME="myvm"
-export DISK_NAME="mydisk"
+export VM_NAME="myvm2"
+export DISK_NAME="mydisk2"
 export ZONE="us-west1-b"
+export NET="mynet4"
 ```
 
 Create network: 
 
 ```
-gcloud compute --project=$DEVSHELL_PROJECT_ID networks create mynet --subnet-mode=auto
+gcloud compute --project=$DEVSHELL_PROJECT_ID networks create $NET --subnet-mode=auto
 
 ```
 
 Firewall rules:
 
 ```
-gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create allow-all --direction=INGRESS --priority=1000 --network=mynet --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
+gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create allow-all --direction=INGRESS --priority=1000 --network=$NET --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
 ```
 
 ## Create Boot disk
@@ -34,7 +35,7 @@ gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create allow-all --
 gcloud beta compute --project=$DEVSHELL_PROJECT_ID \
  instances create $DISK_NAME \
  --zone=$ZONE \
- --subnet=mynet \
+ --subnet=$NET \
  --machine-type=n1-standard-1 \
  --network-tier=PREMIUM \
  --maintenance-policy=TERMINATE \
@@ -89,8 +90,8 @@ Note, make sure that you have the correct project selected.
 ### Cheapest: CPU-only (around $0.01/hour)
 
 ```
-export VM_NAME="myvm"
-export DISK_NAME="mydisk"
+export VM_NAME="myvm2"
+export DISK_NAME="mydisk2"
 export ZONE="us-west1-b"
 
 gcloud beta compute  \
@@ -110,8 +111,8 @@ gcloud beta compute  \
 ### Cheap: K80 GPU (around $0.2/hour)
 
 ```
-export VM_NAME="myvm"
-export DISK_NAME="mydisk"
+export VM_NAME="myvm2"
+export DISK_NAME="mydisk2"
 export ZONE="us-west1-b"
 
 gcloud beta compute \
@@ -131,8 +132,8 @@ gcloud beta compute \
 ### P100 (around $0.5/hour)
 
 ```
-export VM_NAME="myvm"
-export DISK_NAME="mydisk"
+export VM_NAME="myvm2"
+export DISK_NAME="mydisk2"
 export ZONE="us-west1-b"
 
 gcloud beta compute \
@@ -152,5 +153,5 @@ gcloud beta compute \
 ## Delete Node
 
 ```
-gcloud compute instances delete myvm
+gcloud compute instances delete myvm2
 ```
