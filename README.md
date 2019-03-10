@@ -90,14 +90,10 @@ Note, make sure that you have the correct project selected.
 ### Cheapest: CPU-only (around $0.01/hour)
 
 ```
-export VM_NAME="myvm2"
-export DISK_NAME="mydisk2"
-export ZONE="us-west1-b"
-
 gcloud beta compute  \
  instances create $VM_NAME \
  --zone=$ZONE \
- --subnet=mynet \
+ --subnet=$NET \N
  --network-tier=PREMIUM \
  --no-restart-on-failure \
  --maintenance-policy=TERMINATE \
@@ -111,14 +107,10 @@ gcloud beta compute  \
 ### Cheap: K80 GPU (around $0.2/hour)
 
 ```
-export VM_NAME="myvm2"
-export DISK_NAME="mydisk2"
-export ZONE="us-west1-b"
-
 gcloud beta compute \
  instances create $VM_NAME \
  --zone=$ZONE \
- --subnet=mynet \
+ --subnet=$NET \
  --network-tier=PREMIUM \
  --no-restart-on-failure \
  --maintenance-policy=TERMINATE \
@@ -132,14 +124,10 @@ gcloud beta compute \
 ### P100 (around $0.5/hour)
 
 ```
-export VM_NAME="myvm2"
-export DISK_NAME="mydisk2"
-export ZONE="us-west1-b"
-
 gcloud beta compute \
  instances create $VM_NAME \
  --zone=$ZONE \
- --subnet=mynet \
+ --subnet=$NET \
  --network-tier=PREMIUM \
  --no-restart-on-failure \
  --maintenance-policy=TERMINATE \
