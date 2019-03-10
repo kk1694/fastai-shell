@@ -13,7 +13,7 @@ export DEVSHELL_PROJECT_ID="XXX"
 export VM_NAME="myvm2"
 export DISK_NAME="mydisk2"
 export ZONE="us-west1-b"
-export NET="mynet2"
+export NET="mynet"
 ```
 
 Create network: 
