@@ -93,7 +93,7 @@ Note, make sure that you have the correct project selected.
 gcloud beta compute  \
  instances create $VM_NAME \
  --zone=$ZONE \
- --subnet=$NET \N
+ --subnet=$NET \
  --network-tier=PREMIUM \
  --no-restart-on-failure \
  --maintenance-policy=TERMINATE \
