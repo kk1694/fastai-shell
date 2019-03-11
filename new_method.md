@@ -25,7 +25,7 @@ gcloud compute instances create $INSTANCE_NAME \
         --maintenance-policy=TERMINATE \
         --accelerator="type=nvidia-tesla-p4,count=1" \
         --machine-type=$INSTANCE_TYPE \
-        --disk=name=$DISK_NAME,device-name=$DISK_NAME,mode=rw,boot=yes \
+        --disk=name=$INSTANCE_NAME,device-name=$INSTANCE_NAME,mode=rw,boot=yes \
         --preemptible
 ```
 
@@ -40,7 +40,7 @@ Jupyter notebooks at [localhost:8080/tree](localhost:8080/tree)
 Other options.
 
 ```
-# For P100
+# For P100, note it might not be available in the specified zone.
 
 export IMAGE_FAMILY="pytorch-latest-gpu" # or "pytorch-latest-cpu" for non-GPU instances
 export ZONE="us-west2-b" 
@@ -53,6 +53,6 @@ gcloud compute instances create $INSTANCE_NAME \
         --maintenance-policy=TERMINATE \
         --accelerator="type=nvidia-tesla-p100,count=1" \
         --machine-type=$INSTANCE_TYPE \
-        --disk=name=$DISK_NAME,device-name=$DISK_NAME,mode=rw,boot=yes \
+        --disk=name=$INSTANCE_NAME,device-name=$INSTANCE_NAME,mode=rw,boot=yes \
         --preemptible
 ```
