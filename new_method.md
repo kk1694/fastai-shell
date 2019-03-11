@@ -36,3 +36,23 @@ gcloud compute ssh --zone=$ZONE jupyter@$INSTANCE_NAME -- -L 8080:localhost:8080
 ```
 
 Jupyter notebooks at [localhost:8080/tree](localhost:8080/tree)
+
+Other options.
+
+```
+# For P100
+
+export IMAGE_FAMILY="pytorch-latest-gpu" # or "pytorch-latest-cpu" for non-GPU instances
+export ZONE="us-west2-b" 
+export INSTANCE_NAME="my-fastai-instance"
+export INSTANCE_TYPE="n1-highmem-8" # budget: "n1-highmem-4"
+
+gcloud compute instances create $INSTANCE_NAME \
+        --zone=$ZONE \
+        --image-family=$IMAGE_FAMILY \
+        --maintenance-policy=TERMINATE \
+        --accelerator="type=nvidia-tesla-p100,count=1" \
+        --machine-type=$INSTANCE_TYPE \
+        --disk=name=$DISK_NAME,device-name=$DISK_NAME,mode=rw,boot=yes \
+        --preemptible
+```
